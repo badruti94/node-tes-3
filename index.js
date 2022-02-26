@@ -1,9 +1,9 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const multer = require('multer')
+const cloudinary = require('cloudinary').v2
 require('dotenv').config()
 const cors = require('cors')
-const cloudinary = require('cloudinary').v2
 
 const app = express()
 
@@ -33,7 +33,7 @@ cloudinary.config({
 
 
 app.get('/', (req, res) => {
-    res.send('tes-9')
+    res.send('tes-10')
 })
 
 app.post('/tes', upload, async (req, res) => {
