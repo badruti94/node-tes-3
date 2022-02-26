@@ -3,6 +3,7 @@ const bodyParser = require('body-parser')
 const multer = require('multer')
 require('dotenv').config()
 const cors = require('cors')
+const cloudinary = require('cloudinary').v2
 
 const app = express()
 
@@ -24,13 +25,23 @@ const upload = multer({
     storage
 }).single('file')
 
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET
+})
+
 
 app.get('/', (req, res) => {
     res.send('tes-8')
 })
 
 app.post('/tes', upload, async (req, res) => {
-    const result = req.file.path
+    const result = await cloudinary.uploader.upload(req.file.path, {
+        folder: 'uploads',
+        use_filename: true,
+        unique_filename: false
+    })
     console.log(result);
     res.send('tes');
 })
