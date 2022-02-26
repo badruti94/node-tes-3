@@ -7,11 +7,6 @@ const cors = require('cors')
 
 const app = express()
 
-app.use(bodyParser.urlencoded({
-    extended: false
-}))
-app.use(cors())
-
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -21,6 +16,14 @@ const storage = multer.diskStorage({
         cb(null, `${new Date().getTime()}-${file.originalname}`)
     }
 })
+
+app.use(bodyParser.urlencoded({
+    extended: false
+}))
+app.use(cors())
+
+
+
 const upload = multer({
     storage
 }).single('file')
@@ -33,7 +36,7 @@ cloudinary.config({
 
 
 app.get('/', (req, res) => {
-    res.send('tes-10')
+    res.send('tes-11')
 })
 
 app.post('/tes', upload, async (req, res) => {
