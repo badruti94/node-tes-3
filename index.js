@@ -33,7 +33,7 @@ cloudinary.config({
 
 
 app.get('/', (req, res) => {
-    res.send('tes-8')
+    res.send('tes-9')
 })
 
 app.post('/tes', upload, async (req, res) => {
