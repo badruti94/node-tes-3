@@ -4,7 +4,7 @@ require('dotenv').config()
 const app = express()
 
 app.get('/', (req, res) => {
-    res.send('tes-5')
+    res.send('tes-6')
 })
 
 const port = process.env.PORT || 3000
