@@ -32,7 +32,7 @@ const upload = multer({
 }).single('file')
 
 app.get('/', (req, res) => {
-    res.send('tes-13')
+    res.send('tes-6')
 })
 app.post('/tes', upload, async (req, res) => {
     const result = await cloudinary.uploader.upload(req.file.path, {
