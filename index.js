@@ -32,7 +32,7 @@ const upload = multer({
 }).single('file')
 
 app.get('/', (req, res) => {
-    res.send('tes-12')
+    res.send('tes-13')
 })
 app.post('/tes', upload, async (req, res) => {
     const result = await cloudinary.uploader.upload(req.file.path, {
@@ -44,7 +44,7 @@ app.post('/tes', upload, async (req, res) => {
     res.send('tes');
 })
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT | 3000
 app.listen(port, () => {
-    console.log(`listening on ${port}`);
+    console.log(`Running....`);
 })
