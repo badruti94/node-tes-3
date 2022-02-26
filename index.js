@@ -26,7 +26,7 @@ const upload = multer({
 
 
 app.get('/', (req, res) => {
-    res.send('tes-7')
+    res.send('tes-8')
 })
 
 app.post('/tes', upload, async (req, res) => {
