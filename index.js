@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({
 app.use(cors())
 
 app.get('/', (req, res) => {
-    res.send('tes-6')
+    res.send('tes-7')
 })
 
 const port = process.env.PORT || 3000
