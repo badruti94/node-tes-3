@@ -17,28 +17,23 @@ const storage = multer.diskStorage({
     }
 })
 
-app.use(bodyParser.urlencoded({
-    extended: false
-}))
-app.use(cors())
-
-
-
-const upload = multer({
-    storage
-}).single('file')
-
 cloudinary.config({
     cloud_name: process.env.CLOUDINARY_NAME,
     api_key: process.env.CLOUDINARY_API_KEY,
     api_secret: process.env.CLOUDINARY_API_SECRET
 })
 
+app.use(bodyParser.urlencoded({
+    extended: false
+}))
+app.use(cors())
+const upload = multer({
+    storage
+}).single('file')
 
 app.get('/', (req, res) => {
     res.send('tes-11')
 })
-
 app.post('/tes', upload, async (req, res) => {
     const result = await cloudinary.uploader.upload(req.file.path, {
         folder: 'uploads',
